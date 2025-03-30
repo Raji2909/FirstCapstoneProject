@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-03-30T20:07:00 IST" name="Suite" finished-at="2025-03-30T20:07:40 IST" duration-ms="40075">
+    <groups>
+    </groups>
+    <test started-at="2025-03-30T20:07:00 IST" name="Test" finished-at="2025-03-30T20:07:40 IST" duration-ms="40075">
+      <class name="testCases.SearchHotels_testCases">
+        <test-method signature="HotelsList()[pri:0, instance:testCases.SearchHotels_testCases@25a6944c]" started-at="2025-03-30T20:07:11 IST" name="HotelsList" finished-at="2025-03-30T20:07:30 IST" duration-ms="19469" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- HotelsList -->
+      </class> <!-- testCases.SearchHotels_testCases -->
+      <class name="testCases.Login_testCases">
+        <test-method signature="login()[pri:0, instance:testCases.Login_testCases@2cd76f31]" started-at="2025-03-30T20:07:00 IST" name="login" finished-at="2025-03-30T20:07:10 IST" duration-ms="10374" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+      </class> <!-- testCases.Login_testCases -->
+      <class name="testCases.Registration_testCases">
+        <test-method signature="Registration()[pri:0, instance:testCases.Registration_testCases@5e1fa5b1]" started-at="2025-03-30T20:07:30 IST" name="Registration" finished-at="2025-03-30T20:07:40 IST" duration-ms="10091" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Registration -->
+      </class> <!-- testCases.Registration_testCases -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

@@ -1,0 +1,64 @@
+package testCases;
+import java.time.Duration;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
+import pageObjects.Login_pageObjects;
+public class SearchHotels_testCases {
+	WebDriver driver = new FirefoxDriver();
+	@Test
+	public void HotelsList() {
+	System.setProperty("webdriver.firefox.driver", "\"C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe\"");
+	driver.get("https://adactinhotelapp.com/index.php");
+	driver.manage().window().maximize();
+	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
+	PageFactory.initElements(driver, Login_pageObjects.class);
+	Login_pageObjects.username.sendKeys("Rajiruby29");
+	Login_pageObjects.pass.sendKeys("Rajiruby");
+	Login_pageObjects.loginBtn.click();
+	System.out.println("Login Successfully");
+    WebElement dropdownElement = driver.findElement(By.xpath("//*[@id=\"location\"]"));dropdownElement.click();
+	Select dropdown = new Select(dropdownElement);
+	dropdown.selectByIndex(5);
+	WebElement dropdownElement1 = driver.findElement(By.xpath("//*[@id=\"room_nos\"]"));dropdownElement1.click();
+	Select dropdown1 = new Select(dropdownElement1);
+	dropdown1.selectByIndex(1);
+	WebDriverWait wait=new WebDriverWait(driver,Duration.ofMinutes(1));
+    WebElement element=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"datepick_in\"]")));element.sendKeys("30/03/2025");
+    WebDriverWait wait1=new WebDriverWait(driver,Duration.ofMinutes(1));
+    WebElement element1=wait1.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"datepick_out\"]")));element1.sendKeys("31/03/2025");
+    System.out.println("Given date is valid");
+    WebElement dropdownElement2 = driver.findElement(By.xpath("//*[@id=\"adult_room\"]"));dropdownElement2.click();
+	Select dropdown2 = new Select(dropdownElement2);
+	dropdown2.selectByIndex(1);	
+	WebElement Search = driver.findElement(By.xpath("//*[@id=\"Submit\"]"));Search.click();
+	System.out.println("Successfully search of available Hotels");
+	WebElement Hotel = driver.findElement(By.xpath("//*[@id=\"radiobutton_4\"]"));Hotel.click();
+	WebElement Continue = driver.findElement(By.xpath("//*[@id=\"continue\"]"));Continue.click();
+	WebElement FirstName = driver.findElement(By.xpath("//*[@id=\"first_name\"]"));FirstName.sendKeys("Raji");
+	WebElement LastName = driver.findElement(By.xpath("//*[@id=\"last_name\"]"));LastName.sendKeys("Ruby");
+	WebElement Address = driver.findElement(By.xpath("//*[@id=\"address\"]"));Address.sendKeys("No.1-ABC Road, NewYark City.");
+	WebElement Card = driver.findElement(By.xpath("//*[@id=\"cc_num\"]"));Card.sendKeys("1234567890987235");
+	WebElement dropdownElement3 = driver.findElement(By.xpath("//*[@id=\"cc_type\"]"));dropdownElement3.click();
+	Select dropdown3 = new Select(dropdownElement3);
+	dropdown3.selectByIndex(3);
+	WebElement dropdownElement4 = driver.findElement(By.xpath("//*[@id=\"cc_exp_month\"]"));dropdownElement4.click();
+	Select dropdown4 = new Select(dropdownElement4);
+	dropdown4.selectByIndex(10);
+	WebElement dropdownElement5 = driver.findElement(By.xpath("//*[@id=\"cc_exp_year\"]"));dropdownElement5.click();
+	Select dropdown5 = new Select(dropdownElement5);
+	dropdown5.selectByIndex(18);
+	WebElement CVV = driver.findElement(By.xpath("//*[@id=\"cc_cvv\"]"));CVV.sendKeys("1234");
+	WebElement BookNow = driver.findElement(By.xpath("//*[@id=\"book_now\"]"));BookNow.click();
+	System.out.println("Successfully Hotel Booking was Confirmed");
+	WebElement Logout = driver.findElement(By.xpath("//*[@id=\"logout\"]"));Logout.click();
+	System.out.println("Logged out Successfully");
+	driver.close();
+}
+}
